@@ -18,7 +18,7 @@ import java.awt.geom.Rectangle2D;
 public class TestResize extends JFrame{
     public TestResize() {
         super("Draw by Resize Test");
-        add(new DrawPanelTest());
+        getContentPane().add(new DrawPanelTest());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 500);
         setVisible(true);

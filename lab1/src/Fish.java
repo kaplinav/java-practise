@@ -10,14 +10,12 @@
  */
 public class Fish extends Animal {
     
-    public Fish(String name) { m_name = name; }
+    public Fish(String name) { super(name); }
+    //public Fish(String name) { m_name = name; }
     
     @Override
     public void moves(){ System.out.println("Swim!"); }
     
     @Override
     public void sound() { System.out.println("nothing"); }
-    
-    @Override
-    public void output() { System.out.println(m_name+" : Fish"); }
 }

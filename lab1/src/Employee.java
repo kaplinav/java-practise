@@ -18,8 +18,7 @@ public class Employee {
     public Employee(String name) { this(name, "worker", 5000); }
     public Employee(String name, String position)
     {
-        this(name, position, 5000);
-        if (position != "worker") m_salary = 6000;        
+        this(name, position, "worker".equals(position) ? 5000 : 6000);
     }
     
     public Employee(String name, String position, float salary)
@@ -30,12 +29,12 @@ public class Employee {
         m_salary = salary;
     }
     
-    private static void showEmployee(Employee emp)
+    private void showEmployee()
     {
-        System.out.print("ID:"+emp.m_idNumber);
-        System.out.print(" Name:"+emp.m_name);
-        System.out.print(" Position:"+emp.m_position);
-        System.out.print(" Salary:"+emp.m_salary+"\n");
+        System.out.print("ID:"+this.m_idNumber);
+        System.out.print(" Name:"+this.m_name);
+        System.out.print(" Position:"+this.m_position);
+        System.out.print(" Salary:"+this.m_salary+"\n");
     }
     
     public static void showEmployeesList(Employee emp[])
@@ -46,7 +45,7 @@ public class Employee {
         String position = "";
         
         for (int i = 0; i < count; i++) {
-            showEmployee(emp[i]);
+            emp[i].showEmployee();
             sumOfSalary += emp[i].m_salary;
             
             if (emp[i].m_salary > maxSalary) {

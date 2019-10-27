@@ -63,7 +63,7 @@ public class Matrix implements IMatrix{
         return isEqual;
     }
     
-    private int getDigit(FileReader fr) {
+    private int getNumber(FileReader fr) {
         String number = new String();
         
         try {
@@ -133,24 +133,20 @@ public class Matrix implements IMatrix{
         
         if (!f.exists()) throw new IOException();
         
-        try (FileReader fr = new FileReader(file)) {
-            int rows = getDigit(fr);
-            int cols = getDigit(fr);
-            m = new Matrix(rows, cols);
-            
-            for (int i = 1; i <= rows; i++) {
-                for (int j = 1; j <= cols; j++) {
-                    try {
-                        m.set(i, j, getDigit(fr));
-                    } catch (MatrixException e) {
-                        throw new IOException();
-                    }
+        FileReader fr = new FileReader(file);
+        int rows = getNumber(fr);
+        int cols = getNumber(fr);
+        m = new Matrix(rows, cols);
+
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= cols; j++) {
+                try {
+                    m.set(i, j, getNumber(fr));
+                } catch (MatrixException e) {
+                    throw new IOException();
                 }
             }
-        }catch (IOException e) {
-            
         }
-        
         return m;
     }
 
@@ -176,11 +172,7 @@ public class Matrix implements IMatrix{
             }
             if (i != m_i - 1) output += "\n";
         }
-        
-        try (  FileWriter fw = new FileWriter(f) ) {
-            fw.write(output);
-        } catch (IOException e) {
-            
-        }
+        FileWriter fw = new FileWriter(f);
+        fw.write(output);
     }
 }

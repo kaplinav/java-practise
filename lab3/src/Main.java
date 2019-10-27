@@ -18,7 +18,6 @@ public class Main {
         
         // Task 8
         //GenPolyResize gen = new GenPolyResize();
-        // TestResize tr = new TestResize(); // version 2
-        
+        //TestResize tr = new TestResize(); // version 2
     }
 }

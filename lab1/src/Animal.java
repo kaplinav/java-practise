@@ -12,7 +12,9 @@
 public abstract class Animal {
     protected String m_name;
     
+    public Animal(String name) { m_name = name; }
+    
     public abstract void moves();
     public abstract void sound();
-    public abstract void output();
+    public void output() { System.out.println(this.getClass()+" name "+m_name); };
 }

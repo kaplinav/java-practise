@@ -39,17 +39,21 @@ public class MainClass {
         Employee.showEmployeesList(emp);
     }
     
+    public static void task4()
+    {
+        Animal an[] = {new Fish("Shark"),new Bird("Eagle"),
+            new SeaMammal("Killer whale", "Die!"),new TerreMammal("Dog", "Don't lean!")};
+
+        for (Animal a : an){
+            a.output();
+            a.moves();
+            a.sound();
+        }
+    }
+    
     public static void main(String[] args) {
         // Task 1
-//        ThreeNums o1 = new ThreeNums(3, 2, 1);
-//        o1.printSort();
-//        ThreeNums o2 = new ThreeNums(1, 2, 3);
-//        o2.printSort();
-//        ThreeNums o3 = new ThreeNums(2, 1, 3);
-//        o3.printSort();
-//        ThreeNums o4 = new ThreeNums(1, 3, 1);
-//        o4.printSort();
-
+        //new ThreeNums().printSort();
 
         // Task 2
 //        ArrayTriangle ar1 = new ArrayTriangle();
@@ -60,14 +64,6 @@ public class MainClass {
         //task3();
         
         //Task 4
-
-        Animal an[] = {new Fish("Shark"),new Bird("Eagle"),
-            new SeaMammal("Killer whale", "Die!"),new TerreMammal("Dog", "Don't lean!")};
-
-        for (Animal a : an){
-            a.output();
-            a.moves();
-            a.sound();
-        }
+        task4();
     }
 }

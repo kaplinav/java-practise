@@ -11,8 +11,7 @@
 public class SeaMammal extends Mammal{
     
     public SeaMammal(String name, String sound){
-        m_sound = sound;
-        m_name = name;
+        super(name, sound);
     }
     
     @Override
@@ -23,11 +22,5 @@ public class SeaMammal extends Mammal{
     @Override
     public void sound() {
         System.out.println(m_sound);
-    }
-
-    @Override
-    public void output() {
-        System.out.println(m_name+" : SeaMammal");
-    }
-    
+    }    
 }

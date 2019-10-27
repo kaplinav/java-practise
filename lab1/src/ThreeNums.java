@@ -9,13 +9,15 @@
  * @author User
  */
 public class ThreeNums {
+    private static final int MIN = 0;
+    private static final int MAX = 100;
     private int m_a, m_b, m_c;
     
-    public ThreeNums(int a, int b, int c)
+    public ThreeNums()
     {
-        m_a = a;
-        m_b = b;
-        m_c = c;
+        m_a = getRandom();
+        m_b = getRandom();
+        m_c = getRandom();
     }
     
     public void printSort()
@@ -42,5 +44,10 @@ public class ThreeNums {
         }
         
         System.out.println(m_a+" "+m_b+" "+m_c);
+    }
+    
+    private int getRandom()
+    {
+        return MIN + (int)(Math.random() * MAX);
     }
 }

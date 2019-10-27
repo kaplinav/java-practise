@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/lab3/src/Main.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/lab3/src/GenPolyResize.java</file>
+            <file>file:/C:/home/university/3_semester/source/java-practise/lab3/src/PolyGen/GenerateView.java</file>
+            <file>file:/C:/home/university/3_semester/source/java-practise/lab3/src/PolyGen/TestPlace.java</file>
+            <file>file:/C:/home/university/3_semester/source/java-practise/lab3/src/PolyGen/GeneratePolygon.java</file>
+            <file>file:/C:/home/university/3_semester/source/java-practise/lab3/src/PolyFromFile.java</file>
+            <file>file:/C:/home/university/3_semester/source/java-practise/lab3/src/Main.java</file>
+            <file>file:/C:/home/university/3_semester/source/java-practise/lab3/src/TestResize.java</file>
         </group>
     </open-files>
 </project-private>
