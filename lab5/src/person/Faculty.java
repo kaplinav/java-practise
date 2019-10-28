@@ -13,12 +13,12 @@ package person;
 
 public class Faculty extends Person{
     public Faculty(String name, String degree) {
-        this.name = name;
+        super(name);
         this.degree = degree;
     }
     
     public String toString() {
-        return this.name + " " + this.degree;
+        return this.m_name + " " + this.degree;
     }
     
     private String degree;

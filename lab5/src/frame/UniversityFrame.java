@@ -21,6 +21,8 @@ public class UniversityFrame extends JFrame implements ActionListener {
     final static String STUDENT = "STUDENT";
     final static String FACULTY = "FACULTY";
     final static String PRINT = "PRINT";
+    final static String[] itemNames = { "Student Data", "Faculty Data", "Print the List" };
+    final static String[] actionNames = { STUDENT, FACULTY, PRINT };
     
     private JMenuBar menuBar;
     private JMenuItem menuItems[];
@@ -33,7 +35,8 @@ public class UniversityFrame extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         createMenu();
-        add(menuBar, BorderLayout.NORTH);
+        setJMenuBar(menuBar);
+        //add(menuBar, BorderLayout.NORTH);
         textArea = new JTextArea(10,5);
         textArea.setEditable(false);
         textArea.setBackground(new Color(238, 238, 238));
@@ -51,25 +54,8 @@ public class UniversityFrame extends JFrame implements ActionListener {
         menuBar = new JMenuBar();
         menuItems = new JMenuItem[3];
         for (int i = 0; i < 3; i++) {
-            String itemName = null;
-            String actionName = null;
-            
-            switch(i)  {
-                case 0:
-                   itemName = "Student Data";
-                   actionName = STUDENT;
-                break;
-                case 1:
-                    itemName = "Faculty Data";
-                    actionName = FACULTY;
-                break;
-                case 2:
-                    itemName = "Print the List";
-                    actionName = PRINT;
-                break;
-            }
-            menuItems[i] = new JMenuItem(itemName);
-            menuItems[i].setActionCommand(actionName);
+            menuItems[i] = new JMenuItem(itemNames[i]);
+            menuItems[i].setActionCommand(actionNames[i]);
             menuItems[i].addActionListener(this);
             menuBar.add(menuItems[i]);
         }
@@ -77,17 +63,17 @@ public class UniversityFrame extends JFrame implements ActionListener {
     
     private void print(){
         ArrayList persons = studentFrame.getPersons();
-        String text = "";
+        StringBuilder text = new StringBuilder();
         
         for (int i = 0; i < persons.size(); i++) {
-            text += persons.get(i).toString();
+            text.append(persons.get(i).toString());
             
             if (i < persons.size() - 1){
-                text += "\n";
+                text.append("\n");
             }
         }
         
-        textArea.setText(text);
+        textArea.setText(text.toString());
     }
     
     @Override

@@ -11,7 +11,8 @@ package person;
  * @author User
  */
 
-public class Person {
-    protected String name;
+public abstract class Person {
+    protected String m_name;
+    public Person(String name) { m_name = name; }
 }
 

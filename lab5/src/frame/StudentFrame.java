@@ -15,7 +15,7 @@ import person.*;
  * @author User
  */
 
-public class StudentFrame extends InputFrame implements ActionListener{
+public class StudentFrame extends InputFrame {
     String pattern = "^\\d+$";
     
     public StudentFrame(){
@@ -26,41 +26,14 @@ public class StudentFrame extends InputFrame implements ActionListener{
         super.closeBtn.addActionListener(this);
     }
     
-    private void accept(){
-        if (checkInput()){
-            add();
-            JOptionPane.showMessageDialog(this, "ACCEPTED");
-        }else {
-            JOptionPane.showMessageDialog(this, "Wrong Input");
-        }
-    }
+    protected void add(){ persons.add(new Student(super.nameText.getText(), Integer.parseInt(super.variableText.getText()))); }
     
-    private void add(){ persons.add(new Student(super.nameText.getText(), Integer.parseInt(super.variableText.getText()))); }
-    
-    private boolean checkInput(){
+    protected boolean checkInput(){
         if (!super.nameText.getText().isBlank()){
             if (!super.variableText.getText().isBlank() && super.variableText.getText().matches(pattern)){
                 return true;
             }
         }
         return false;
-    }
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
-        switch(e.getActionCommand()){
-            case ACCEPT:
-                accept();
-                break;
-            case CLEAR:
-                clear();
-                break;
-            case CLOSE:
-                clear();
-                this.dispose();
-                break;
-        }
     }
 }

@@ -13,13 +13,13 @@ package person;
 
 public class Student extends Person {
     public Student(String name, int age) {
-        this.name = name;
+        super(name);
         this.age = age;
     }
     
     @Override
     public String toString() {
-        return this.name + " " + age;
+        return this.m_name + " " + age;
     }
     
     private int age;

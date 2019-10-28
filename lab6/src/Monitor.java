@@ -25,7 +25,8 @@ public class Monitor extends JFrame {
         textArea.setBackground(new Color(238, 238, 238));
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
-        add(scrollPane, BorderLayout.CENTER);
+        getContentPane().add(scrollPane);
+        //add(scrollPane, BorderLayout.CENTER);
         setSize(300, 500);
         setVisible(true);
     }
@@ -37,11 +38,6 @@ public class Monitor extends JFrame {
     }
     
     public void sendMessage(String message){
-        if (this.m == null) 
-            return;
-        
-        String text = this.m.textArea.getText();
-        text += "\n" + message;
-        this.m.textArea.setText(text);
+        this.m.textArea.append(message + "\n");
     }
 }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * @author User
  */
 
-public class InputFrame extends JFrame{
+public abstract class InputFrame extends JFrame implements ActionListener{
     protected static ArrayList persons = new ArrayList();
     
     protected final static String ACCEPT = "ACCEPT";
@@ -95,14 +95,45 @@ public class InputFrame extends JFrame{
             )
         );   
     }
-     
+    
+    protected abstract void add();
+    
+    protected void accept(){
+        if (checkInput()){
+            add();
+            JOptionPane.showMessageDialog(this, "ACCEPTED");
+        }else {
+            JOptionPane.showMessageDialog(this, "Wrong Input");
+        }
+    }
+    
     protected void clear(){
         nameText.setText("");
         variableText.setText("");
     }
     
+    protected abstract boolean checkInput();
+    
     protected void hideFrame(){
         clear();
         this.dispose();
+    }
+        
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+        switch(e.getActionCommand()){
+            case ACCEPT:
+                accept();
+                break;
+            case CLEAR:
+                clear();
+                break;
+            case CLOSE:
+                clear();
+                this.dispose();
+                break;
+        }
     }
 }
