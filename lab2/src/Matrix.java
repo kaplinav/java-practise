@@ -32,17 +32,42 @@ public class Matrix implements IMatrix{
     }
     
     private boolean indexIsCorrect(int i, int j){
-        try{
-            double e = m_matrix[i][j];
-        } catch (ArrayIndexOutOfBoundsException e){
-            return false;
-        }
-        return true;
+        return ((i - 1) >= 0 && (i - 1) < m_i) && ((j - 1) >= 0 && (j - 1) < m_j);
     }
     
-    private boolean sizeIsEqual(IMatrix m) {
-        Matrix other = (Matrix)m;
-        return (other.m_i == m_i && other.m_j == m_j);
+    public boolean sizeIsEqual(IMatrix m) {
+        // check that m not less than this matrix
+        try {
+            for (int i = 1; i <= m_i; i++)
+                m.get(i, m_j);
+        } catch (MatrixException e) {
+            return false;
+        }
+        
+        // check that m not greater than this matrix
+        boolean isGreater = true;
+        try {
+                m.get(m_i + 1, 1);
+            } catch (MatrixException e) {
+                isGreater = false;
+            }
+        if (isGreater)
+            return false;
+        
+        // check that m not greater than this matrix
+        for (int i = 1; i <= m_i; i++ )
+        {
+            isGreater = true;
+            try {
+                m.get(i, m_j + 1);
+            } catch (MatrixException e) {
+                isGreater = false;
+            }
+            if (isGreater)
+                return false;
+        }
+        
+        return true;
     }
     
     private int getNumber(FileReader fr) {
@@ -113,9 +138,6 @@ public class Matrix implements IMatrix{
     public IMatrix read(String file) throws IOException {
         Matrix m = null;
         File f = new File(file);
-        
-        if (!f.exists()) throw new IOException();
-        
         FileReader fr = new FileReader(file);
         int rows = getNumber(fr);
         int cols = getNumber(fr);
@@ -130,6 +152,7 @@ public class Matrix implements IMatrix{
                 }
             }
         }
+        fr.close();
         return m;
     }
 
@@ -145,7 +168,6 @@ public class Matrix implements IMatrix{
 
     @Override
     public void write(String file) throws IOException {
-        File f = new File(file);
         StringBuilder output = new StringBuilder(m_i + " " + m_j + "\n");
         
         for (int i = 0; i < m_i; i++) {
@@ -155,7 +177,9 @@ public class Matrix implements IMatrix{
             }
             if (i != m_i - 1) output.append("\n");
         }
+        File f = new File(file);
         FileWriter fw = new FileWriter(f);
         fw.write(output.toString());
+        fw.close();
     }
 }

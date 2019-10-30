@@ -12,4 +12,7 @@ public abstract class Mammal extends Animal {
     protected String m_sound;
     
     public Mammal(String name, String sound) { super(name); m_sound = sound; }
+    
+    @Override
+    public void sound() { System.out.println(m_sound); }
 }

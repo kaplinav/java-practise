@@ -17,10 +17,5 @@ public class SeaMammal extends Mammal{
     @Override
     public void moves() {
         System.out.println("Swim!");
-    }
-
-    @Override
-    public void sound() {
-        System.out.println(m_sound);
-    }    
+    } 
 }

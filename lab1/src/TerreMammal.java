@@ -18,9 +18,4 @@ public class TerreMammal extends Mammal{
     public void moves() {
         System.out.println("Run!");
     }
-
-    @Override
-    public void sound() {
-        System.out.println(m_sound);
-    }
 }

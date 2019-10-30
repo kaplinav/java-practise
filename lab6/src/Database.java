@@ -27,7 +27,7 @@ public class Database {
         while (w) {
             
             try {
-                wait(RandomTime.getRandomTime(MIN, MAX));
+                wait();
             } catch (InterruptedException ex) { 
                 System.err.println("exception read");
             }
@@ -48,7 +48,7 @@ public class Database {
     public synchronized void startWrite(){
         while (w || r) {
             try {
-                wait(RandomTime.getRandomTime(MIN, MAX));
+                wait();
             } catch (InterruptedException ex) { 
                 ex.printStackTrace();
                 System.err.println("exception write");
