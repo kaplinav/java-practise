@@ -148,6 +148,7 @@ public class Matrix implements IMatrix{
                 try {
                     m.set(i, j, getNumber(fr));
                 } catch (MatrixException e) {
+                    fr.close();
                     throw new IOException();
                 }
             }
